@@ -14,3 +14,34 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.fundo{
+    background-image: url('../assets/imgs/background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.bordabtn{
+    border-width: thin;
+    background-color: #E8340C;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+}
+.bordabtn1{
+    border-width: thin;
+    background-color: rgba(232, 52, 12, 0.582);
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+}
+.bordabtn2{
+    border-width: thin;
+    background-color: #E8340C;
+    border-style: solid;
+    border-color: #000;
+    border-radius: 10px;
+    height: 100px;
+    margin: 30px 0;
+}
+.negrito {
+    font-weight: bolder;
+}

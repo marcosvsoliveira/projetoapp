@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-buttons end>
+            <img src="../../assets/icon/logo.png">
+          </ion-buttons>
+      <ion-title>
+        Recuperação de senha
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="fundo">
+  <form [formGroup]="form">
+    <ion-item>
+    <ion-label stacked>E-mail</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf="!form.controls.email.valid && (form.controls.email.dirty || form.controls.email.touched)" color="danger">
+        <div [hidden]="!form.controls.email.errors.required">
+        O campo é obrigatório
+        </div>
+      </ion-item>
+
+    <div padding>
+      <button class="bordabtn" ion-button block (click)="onSubmit()" type="submit" [disabled]="!form.valid">Entrar</button>
+    </div>
+
+  </form>
+</ion-content>
