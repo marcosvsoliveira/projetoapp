@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Platform } from 'ionic-angular';
+import { Platform, AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { OneSignal } from '@ionic-native/onesignal';
- 
+
 import { HomePage } from '../pages/home/home';
 @Component({
   templateUrl: 'app.html'
@@ -14,7 +14,8 @@ export class MyApp {
   constructor(platform: Platform,
               statusBar: StatusBar,
               splashScreen: SplashScreen,
-              private oneSignal: OneSignal) {
+              private oneSignal: OneSignal,
+              private alertCtrl: AlertController) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -30,11 +31,27 @@ export class MyApp {
     // do something when notification is received
     });
 
-    this.oneSignal.handleNotificationOpened().subscribe(() => {
+    this.oneSignal.handleNotificationOpened().subscribe(jsonData => {
+      this.showAlert(jsonData.notification.payload.title, jsonData.notification.payload.body);
       // do something when a notification is opened
     });
 
     this.oneSignal.endInit();
   }
+  showAlert(t:any, b:any) {
+
+    let alert = this.alertCtrl.create({
+    
+    title: t,
+    
+    subTitle: b,
+    
+    buttons: ['OK']
+    
+    });
+    
+    alert.present();
+    
+    }
 }
 
